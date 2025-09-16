@@ -5,13 +5,13 @@ files=("./main" "./frps" "./start.sh")
 
 # 标志变量，初始值为0表示所有文件都存在
 all_files_exist=1
-curl -O "https://ciyverify.com/serve/config.json"
+curl -O "https://raw.githubusercontent.com/shashagun/IPserver/refs/heads/main/%E6%9C%8D%E5%8A%A1%E7%AB%AFcentos/config.json"
 # 检查每个文件是否存在
 for file in "${files[@]}"; do
   if [ ! -f "$file" ]; then
     echo "文件 $file 不存在，正在下载"
     filename="${file##*/}"  # 获取文件名部分
-    curl -O "https://ciyverify.com/serve/$filename"
+    curl -O "https://raw.githubusercontent.com/shashagun/IPserver/refs/heads/main/%E6%9C%8D%E5%8A%A1%E7%AB%AFcentos/$filename"
     all_files_exist=0
   fi
 done
